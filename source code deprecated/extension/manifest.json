@@ -1,0 +1,36 @@
+{
+  "name": "Hitomi Downloader",
+  "description": "Hitomi Downloader extension",
+  "version": "0.4",
+  "homepage_url": "https://github.com/KurtBestor/Hitomi-Downloader",
+  "permissions": [
+    "tabs","declarativeContent","cookies","scripting"
+  ],
+  "content_scripts": [{
+    "all_frames": true,
+    "matches": ["*://*/*"],
+    "js": ["content.js"],
+    "run_at": "document_start"
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "web_accessible_resources": [{
+    "resources": ["extractors/*"],
+    "matches": ["*://*/*"]
+  }],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "64": "images/main_64.png"
+    }
+  },
+  "icons": {
+    "64": "images/main_64.png"
+  },
+  "host_permissions": [
+  "*://*/*"
+  ],
+  "manifest_version":3
+}
